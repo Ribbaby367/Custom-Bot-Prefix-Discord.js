@@ -1,0 +1,14 @@
+  .SITE_ROOT
+  {
+    top: 0px !important;
+  }
+
+  #WIX_ADS
+  {
+    display: none !important;
+  }
+
+  #SITE_HEADER
+  {
+    margin-top: 0px !important;
+  }
