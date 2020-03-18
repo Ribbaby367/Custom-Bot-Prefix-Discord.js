@@ -1,4 +1,8 @@
 /* obviously this isn't the whole file, this just deals with messaging. */
+const express = require('express');
+const app = express();
+const db = require("quick.db");
+const Discord = require("discord.js");
 
 client.on('message', async message => {
   let prefix = await db.fetch(`prefix_${message.guild.id}`);
