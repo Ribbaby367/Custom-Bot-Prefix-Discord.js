@@ -1,6 +1,3 @@
-/* obviously this isn't the whole file, this just deals with messaging. */
-const express = require('express');
-const app = express();
 const db = require("quick.db");
 const Discord = require("discord.js");
 
@@ -16,29 +13,8 @@ client.on('message', async message => {
     if (message.content.indexOf(prefix) !== 0) return;
     try {
         let commandFile = require(`./commands/${command}.js`);
-        commandFile.run(client, message, args, config)
+        commandFile.run(client, Discord, message, args, db, config)
     } catch (err) {
         return;
     }
-  if (message.isMentioned(client.user)) {
-    console.log(`I was mentioned!`);
-
-    let embed = new Discord.RichEmbed()
-    .setColor("#00aaff")
-    .setTitle('Bot Commands')
-    .addField("Mod Commands", `
-${prefix}ban [user] (reason)
-${prefix}kick [user] (reason)
-${prefix}purge [amount]`)
-    .addField("Economy", `
-${prefix}work 
-${prefix}job
-${prefix}getjob [jobname]
-${prefix}givecash [user] 
-${prefix}bal
-${prefix}gamble`)
-    .setFooter(`${prefix}help | discord.gg/7Umrdsx`);
-
-    return message.channel.send({ embed });
-  } 
 })
