@@ -1,3 +1,1 @@
-# Custom Prefix Database Setup
-
-Install quick.db with npm install quick.db
+# Basic quick.db implementation of custom bot prefixes
